@@ -3,27 +3,66 @@ let currentNumber = ''
 let operator = ''
 let previousNumber = ''
 
+function appendNumber(number) {
+    currentNumber += number;
+    display.textContent = currentNumber;
+}
 
-function clear() {
+function clearDisplay() {
     currentNumber = ''
     operator = ''
     previousNumber = ''
     display.textContent = '0'
 }
 
-function numbers() {
-    let numberZero = document.getElementById('zero')
-    let numberOne = document.getElementById('one')
-    let numberTwo = document.getElementById('two')
-    let numberTree = document.getElementById('tree')
-    let numberFour = document.getElementById('four')
-    let numberFive = document.getElementById('five')
-    let numberSix = document.getElementById('six')
-    let numberSeven = document.getElementById('seven')
-    let numberEight = document.getElementById('eight')
-    let numberNine = document.getElementById('nine')
-
-    
-
-
+function appendOperator(op) {
+    operator = op;
+    previousNumber = currentNumber;
+    currentNumber = ''
 }
+
+function calculateNegative() {
+    if (parseFloat(currentNumber) !== 0) {
+        currentNumber = (-parseFloat(currentNumber)).toString();
+        display.textContent = currentNumber;
+    }
+}
+
+function appendDecimal() {
+    if (!currentNumber.includes('.')) {
+        currentNumber += '.';
+        display.textContent = currentNumber;
+    }
+}
+
+function calculate() {
+    let result;
+    switch (operator) {
+        case '+':
+            result = parseFloat(previousNumber) + parseFloat(currentNumber);
+            break;
+        case '-':
+            result = parseFloat(previousNumber) - parseFloat(currentNumber);
+            break;
+        case '*':
+            result = parseFloat(previousNumber) * parseFloat(currentNumber);
+            break;
+        case '/':
+            result = parseFloat(previousNumber) / parseFloat(currentNumber);
+            break;
+        case '%':
+            result = (parseFloat(previousNumber) * parseFloat(currentNumber)) / 100;
+            break;
+        case '+/-':
+            result = -parseFloat(currentNumber);
+            break;
+        
+    }
+    display.textContent = result;
+    currentNumber = result.toString();
+    operator = '';
+    previousNumber = '';
+}
+
+
+

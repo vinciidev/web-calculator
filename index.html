@@ -18,37 +18,37 @@
     
     
         <div id="firstBar">
-        <button class="modify" id="clear" onclick="clear()">C</button>
-        <button class="modify" id="negative">+/-</button>
-        <button class="modify" id="percentage">%</button>
-        <button class="operators" id="division">D</button>
+        <button class="modify" id="clear" onclick="clearDisplay()">C</button>
+        <button class="modify" id="negative" onclick="calculateNegative()">+/-</button>
+        <button class="modify" id="percentage" onclick="appendOperator('%')">%</button>
+        <button class="operators" id="division" onclick="appendOperator('/')">/</button>
         </div>
 
         <div id="secondBar">
-        <button class="numbers" id="seven">7</button>
-        <button class="numbers" id="eight">8</button>
-        <button class="numbers" id="nine">9</button>
-        <button class="operators" id="multiplication">X</button>
+        <button class="numbers" id="seven"  onclick="appendNumber(7)">7</button>
+        <button class="numbers" id="eight"  onclick="appendNumber(8)">8</button>
+        <button class="numbers" id="nine"  onclick="appendNumber(9)">9</button>
+        <button class="operators" id="multiplication" onclick="appendOperator('*')">X</button>
         </div>
 
         <div id="thirdBar">
-        <button class="numbers" id="four">4</button>
-        <button class="numbers" id="five">5</button>
-        <button class="numbers" id="six">6</button>
-        <button class="operators" id="minus">-</button>
+        <button class="numbers" id="four"  onclick="appendNumber(4)">4</button>
+        <button class="numbers" id="five"  onclick="appendNumber(5)">5</button>
+        <button class="numbers" id="six"  onclick="appendNumber(6)">6</button>
+        <button class="operators" id="minus" onclick="appendOperator('-')">-</button>
         </div>
 
         <div id="fortyBar">
-        <button class="numbers" id="one">1</button>
-        <button class="numbers" id="two">2</button>
-        <button class="numbers" id="tree">3</button>
-        <button class="operators" id="plus">+</button>
+        <button class="numbers" id="one"  onclick="appendNumber(1)">1</button>
+        <button class="numbers" id="two"  onclick="appendNumber(2)">2</button>
+        <button class="numbers" id="tree"  onclick="appendNumber(3)">3</button>
+        <button class="operators" id="plus" onclick="appendOperator('+')">+</button>
         </div>
     
         <div id="fivetyBar">
-        <button class="numbers" id="button0">0</button>
-        <button class="numbers" id="virgula">,</button>
-        <button class="operators" id="finalResult">=</button>
+        <button class="numbers" id="button0"  onclick="appendNumber(0)">0</button>
+        <button class="numbers" id="virgula"  onclick="appendDecimal()">,</button>
+        <button class="operators" id="finalResult" onclick="calculate()">=</button>
         </div>
 
     </container>
